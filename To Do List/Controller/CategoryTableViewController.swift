@@ -109,6 +109,7 @@ class CategoryTableViewController: UITableViewController {
         let category=catArray[indexPath.row]
         
         try! realm.write {
+            realm.delete(category.items)
             realm.delete(category)
         }
         tableView.reloadData()
